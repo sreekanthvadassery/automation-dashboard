@@ -39,6 +39,10 @@ public class ProjectServiceImpl implements ProjectService{
 
 	@Override
 	public ResponseEntity<Project> save(Project project) {
+		//setting createdAt time  and lastUpdatedBy
+		project = project.setCreatedAt(DateUtils.getCurrentDateTime("yyyy-MM-dd HH:mm:ss"))
+						 .setUpdatedAt(DateUtils.getCurrentDateTime("yyyy-MM-dd HH:mm:ss"))
+						 .setLastUpdatedBy("Logged in user");
 		project = projectRepository.save(project);
 		return ResponseEntity.ok(project);
 	}

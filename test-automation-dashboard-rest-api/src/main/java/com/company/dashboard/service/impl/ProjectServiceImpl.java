@@ -61,7 +61,7 @@ public class ProjectServiceImpl implements ProjectService{
 						.setProjectName(project.getProjectName())
 						.setProjectDescription(project.getProjectDescription())
 						.setEnabled(project.getEnabled())
-						.setCreatedAt(project.getCreatedAt())
+						//.setCreatedAt(project.getCreatedAt())
 						.setUpdatedAt(DateUtils.getCurrentDateTime("yyyy-MM-dd HH:mm:ss"))
 						.setLastUpdatedBy("Logged in User");
 		//saving

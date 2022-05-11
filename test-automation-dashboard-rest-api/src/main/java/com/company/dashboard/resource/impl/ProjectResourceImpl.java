@@ -1,8 +1,8 @@
 package com.company.dashboard.resource.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -33,8 +33,8 @@ public class ProjectResourceImpl implements Resource{
 	private ProjectService projectService;
 	
 	@GetMapping("/find-all")
-	public List<Project> findAll(){
-		return projectService.findAll();
+	public Page<Project> findAll(Pageable pageable){
+		return projectService.findAll(pageable);
 	}
 	
 	@GetMapping("{id}")

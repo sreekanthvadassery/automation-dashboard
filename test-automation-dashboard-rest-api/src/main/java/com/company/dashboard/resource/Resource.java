@@ -1,7 +1,7 @@
 package com.company.dashboard.resource;
 
-import java.util.List;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +21,7 @@ import com.company.dashboard.model.Project;
 public interface Resource {
 	
 	@GetMapping("/find-all")
-	List<Project> findAll();
+	Page<Project> findAll(Pageable pageable);
 	
 	@GetMapping("{id}")
 	ResponseEntity<Project> findById(@PathVariable Integer id);

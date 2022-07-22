@@ -11,26 +11,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.company.dashboard.model.Project;
-
 /**
  * @author 	: Sreekanth Vadassery
  * Date		: 20220425
  * Generic Type Resource Interface
  */
-public interface Resource {
+public interface Resource<T> {
 	
 	@GetMapping("/find-all")
-	Page<Project> findAll(Pageable pageable);
+	Page<T> findAll(Pageable pageable);
 	
 	@GetMapping("{id}")
-	ResponseEntity<Project> findById(@PathVariable Integer id);
+	ResponseEntity<T> findById(@PathVariable Integer id);
 	
 	@PostMapping("/save")
-	ResponseEntity<Project> save(@RequestBody Project project);
+	ResponseEntity<T> save(@RequestBody T t);
 	
 	@PutMapping("/update/{id}")
-	ResponseEntity<Project> update(@PathVariable Integer id,@RequestBody Project project);
+	ResponseEntity<T> update(@PathVariable Integer id,@RequestBody T t);
 	
 	@DeleteMapping("/delete/{id}")
 	ResponseEntity<HttpStatus> deleteById(@PathVariable Integer id);

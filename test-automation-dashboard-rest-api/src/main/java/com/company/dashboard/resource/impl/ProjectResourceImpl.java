@@ -6,11 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,32 +23,32 @@ import com.company.dashboard.service.ProjectService;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/project")
-public class ProjectResourceImpl implements Resource{
+public class ProjectResourceImpl implements Resource<Project>{
 	
 	@Autowired
 	private ProjectService projectService;
 	
-	@GetMapping("/find-all")
+	@Override
 	public Page<Project> findAll(Pageable pageable){
 		return projectService.findAll(pageable);
 	}
 	
-	@GetMapping("{id}")
+	@Override
 	public ResponseEntity<Project> findById(@PathVariable Integer id){
 		return projectService.findById(id);
 	}
 	
-	@PostMapping("/save")
+	@Override
 	public ResponseEntity<Project> save(@RequestBody Project project) {
 		return projectService.save(project);
 	}
 	
-	@PutMapping("/update/{id}")
+	@Override
 	public ResponseEntity<Project> update(@PathVariable Integer id,@RequestBody Project project){
 		return projectService.update(id, project);
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@Override
 	public ResponseEntity<HttpStatus> deleteById(@PathVariable Integer id) {
 		return projectService.deleteById(id);
 	}

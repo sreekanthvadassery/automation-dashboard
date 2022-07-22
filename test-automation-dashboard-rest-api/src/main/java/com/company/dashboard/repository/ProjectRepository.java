@@ -4,9 +4,6 @@ import org.springframework.data.jpa.repository.support.JpaRepositoryImplementati
 
 import com.company.dashboard.model.Project;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 /**
  * @author 	: Sreekanth Vadassery
  * Date		: 20220425

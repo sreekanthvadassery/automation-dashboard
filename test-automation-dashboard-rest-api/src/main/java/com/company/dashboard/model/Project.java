@@ -10,10 +10,10 @@ import javax.persistence.Table;
 /**
  * @author 	: Sreekanth Vadassery
  * Date		: 20220425
- * Modal class for Project entity
+ * Model class for Project entity
  */
 @Entity
-@Table(name="project")
+@Table(name="project", catalog = "automation_dashboard")
 public class Project {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,6 +40,7 @@ public class Project {
 	public Integer getProjectId() {
 		return projectId;
 	}
+	
 	public void setProjectId(Integer projectId) {
 		this.projectId = projectId;
 	}
@@ -47,6 +48,7 @@ public class Project {
 	public String getProjectName() {
 		return projectName;
 	}
+	
 	public Project setProjectName(String projectName) {
 		this.projectName = projectName;
 		return this;
@@ -55,6 +57,7 @@ public class Project {
 	public String getProjectDescription() {
 		return projectDescription;
 	}
+	
 	public Project setProjectDescription(String projectDescription) {
 		this.projectDescription = projectDescription;
 		return this;
@@ -63,6 +66,7 @@ public class Project {
 	public Boolean getEnabled() {
 		return enabled;
 	}
+	
 	public Project setEnabled(Boolean enabled) {
 		this.enabled = enabled;
 		return this;
@@ -71,6 +75,7 @@ public class Project {
 	public String getCreatedAt() {
 		return createdAt;
 	}
+	
 	public Project setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 		return this;
@@ -79,6 +84,7 @@ public class Project {
 	public String getUpdatedAt() {
 		return updatedAt;
 	}
+	
 	public Project setUpdatedAt(String updatedAt) {
 		this.updatedAt = updatedAt;
 		return this;
@@ -87,6 +93,7 @@ public class Project {
 	public String getLastUpdatedBy() {
 		return lastUpdatedBy;
 	}
+	
 	public Project setLastUpdatedBy(String lastUpdatedBy) {
 		this.lastUpdatedBy = lastUpdatedBy;
 		return this;

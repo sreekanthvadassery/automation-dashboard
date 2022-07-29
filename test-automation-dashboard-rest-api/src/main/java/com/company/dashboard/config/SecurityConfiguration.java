@@ -57,13 +57,21 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		//http.authorizeRequests().anyRequest().permitAll();
 		//http.authorizeRequests().anyRequest().authenticated();
 		//http.authorizeRequests((request)->request.antMatchers("/h2-console/**").permitAll().anyRequest().authenticated()).httpBasic();
-		
+	
+		//Permit only login request without authentication
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().exceptionHandling()
 			.authenticationEntryPoint(authenticationEntryPoint).and()
 			.authorizeRequests((request)->request.antMatchers("/api/v1/auth/login").permitAll()
 					.antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
 					.anyRequest().authenticated())
 			.addFilterBefore(new JWTAuthenticationFilter(userService, jwtTokenHelper),UsernamePasswordAuthenticationFilter.class);
+
+		//Permit All Request 
+		/*http.
+		    authorizeRequests().
+		    anyRequest().
+		    permitAll();
+		*/
 		
 		//This line was missed out in initial code
 		http.cors();

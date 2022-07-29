@@ -34,4 +34,9 @@ CREATE TABLE `automation_dashboard`.`role` (
   `roleDescription` VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (`roleId`));
 -------------------------------------------------------------------------------------------------------------------------------
-  
+CREATE TABLE `automation_dashboard`.`xrefuserrole` (
+  `XRefUserRoleId` INT(11) NOT NULL AUTO_INCREMENT,
+  `userId` INT NOT NULL,
+  `roleId` INT NOT NULL,
+  PRIMARY KEY (`XRefUserRoleId`));
+-------------------------------------------------------------------------------------------------------------------------------

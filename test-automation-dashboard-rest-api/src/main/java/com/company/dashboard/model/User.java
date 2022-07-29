@@ -71,7 +71,13 @@ public class User implements UserDetails {
 	private String lastUpdatedBy;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinTable(name="XRefUserRole", joinColumns = @JoinColumn(referencedColumnName = "userId"),inverseJoinColumns = @JoinColumn(referencedColumnName = "roleId"))
+	@JoinTable(
+			name="XRefUserRole", 
+			//joinColumns = @JoinColumn(referencedColumnName = "userId"),
+			joinColumns = @JoinColumn(name = "userId"),
+			//inverseJoinColumns = @JoinColumn(referencedColumnName = "roleId")
+			inverseJoinColumns = @JoinColumn(name = "roleId")
+			)
 	private List<Role> roles;
 
 	@Override

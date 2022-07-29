@@ -29,9 +29,10 @@ import com.company.dashboard.response.UserInfo;
  * Date		: 20220722
  * Controller for Authentication
  */
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin("*")
+//@RequestMapping("/api/v1/auth")
 public class AuthenticationController {
 	
 	@Autowired
